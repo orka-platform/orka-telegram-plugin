@@ -13,7 +13,7 @@
           "type": "string"
         },
         {
-          "name": "chatId",
+          "name": "chatID",
           "description": "Chat id to send the message to",
           "type": "string"
         },
