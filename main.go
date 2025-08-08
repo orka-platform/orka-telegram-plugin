@@ -34,7 +34,7 @@ func (t *TelegramPlugin) CallMethod(req sdk.Request, res *sdk.Response) error {
 		if err != nil {
 			*res = sdk.Response{Success: false, Error: err.Error()}
 		} else {
-			*res = sdk.Response{Success: true, Data: "Message sent"}
+			*res = sdk.Response{Success: true, Data: map[string]any{"messageID": "123"}}
 		}
 		return nil
 

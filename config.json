@@ -2,7 +2,11 @@
   "name": "Telegram",
   "version": "v0.1.0",
   "description": "Telegram plugin to send messages",
-  "tags": ["telegram", "messenger", "social-media"],
+  "tags": [
+    "telegram",
+    "messenger",
+    "social-media"
+  ],
   "methods": {
     "SendMessage": {
       "description": "Sends a message to a chat",
@@ -10,16 +14,26 @@
         {
           "name": "token",
           "description": "bot auth token",
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         {
           "name": "chatID",
           "description": "Chat id to send the message to",
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         {
           "name": "text",
           "description": "The message to send to the chat",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "returns": [
+        {
+          "name": "messageID",
+          "description": "The message ID of the sent message",
           "type": "string"
         }
       ]
