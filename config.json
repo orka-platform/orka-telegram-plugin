@@ -1,10 +1,10 @@
 {
   "name": "Telegram",
-  "version": "0.0.0",
+  "version": "v0.1.0",
   "description": "Telegram plugin to send messages",
   "tags": ["telegram", "messenger", "social-media"],
   "methods": {
-    "sendMessage": {
+    "SendMessage": {
       "description": "Sends a message to a chat",
       "args": [
         {
@@ -13,7 +13,7 @@
           "type": "string"
         },
         {
-          "name": "chatId",
+          "name": "chatID",
           "description": "Chat id to send the message to",
           "type": "string"
         },
