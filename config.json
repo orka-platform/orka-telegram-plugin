@@ -1,0 +1,28 @@
+{
+  "name": "Telegram",
+  "version": "0.0.0",
+  "description": "Telegram plugin to send messages",
+  "tags": ["telegram", "messenger", "social-media"],
+  "methods": {
+    "sendMessage": {
+      "description": "Sends a message to a chat",
+      "args": [
+        {
+          "name": "token",
+          "description": "bot auth token",
+          "type": "string"
+        },
+        {
+          "name": "chatId",
+          "description": "Chat id to send the message to",
+          "type": "string"
+        },
+        {
+          "name": "text",
+          "description": "The message to send to the chat",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}
