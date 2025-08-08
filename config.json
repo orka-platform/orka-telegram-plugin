@@ -4,7 +4,7 @@
   "description": "Telegram plugin to send messages",
   "tags": ["telegram", "messenger", "social-media"],
   "methods": {
-    "sendMessage": {
+    "SendMessage": {
       "description": "Sends a message to a chat",
       "args": [
         {
