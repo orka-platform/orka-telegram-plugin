@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/gob"
 	"flag"
 	"fmt"
 	"log"
@@ -12,6 +13,13 @@ import (
 
 	sdk "github.com/orka-platform/orka-plugin-sdk"
 )
+
+func init() {
+	gob.Register(map[string]any{})
+	gob.Register([]any{})
+	gob.Register(map[string]string{})
+	gob.Register([]string{})
+}
 
 type TelegramPlugin struct{}
 

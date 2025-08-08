@@ -1,6 +1,6 @@
 {
   "name": "Telegram",
-  "version": "v0.0.0",
+  "version": "v0.0.1",
   "description": "Telegram plugin to send messages",
   "tags": [
     "telegram",
