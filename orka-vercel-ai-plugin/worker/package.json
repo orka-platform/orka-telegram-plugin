@@ -1,0 +1,15 @@
+{
+  "name": "orka-vercel-ai-worker",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Worker script that calls Vercel AI SDK providers for chat completion",
+  "main": "index.mjs",
+  "license": "MIT",
+  "dependencies": {
+    "ai": "^3.3.9",
+    "@ai-sdk/openai": "^0.0.66",
+    "@ai-sdk/anthropic": "^0.0.55",
+    "@ai-sdk/google": "^0.0.49"
+  }
+}

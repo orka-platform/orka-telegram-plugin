@@ -1,0 +1,27 @@
+{
+  "name": "Vercel AI Chat",
+  "version": "v0.0.1",
+  "description": "Chat completion via Vercel AI SDK across OpenAI, Anthropic, and Google",
+  "tags": ["ai", "llm", "chat", "vercel", "openai", "anthropic", "google"],
+  "methods": {
+    "ChatCompletion": {
+      "description": "Sends a chat conversation to the selected LLM provider via Vercel AI SDK and returns the assistant response",
+      "args": [
+        { "name": "provider", "description": "LLM provider: openai | anthropic | google", "type": "string", "required": true },
+        { "name": "model", "description": "Model id, e.g., gpt-4o-mini, claude-3-5-sonnet, gemini-1.5-pro", "type": "string", "required": true },
+        { "name": "apiKey", "description": "API key for the selected provider", "type": "string", "required": true },
+        { "name": "messages", "description": "Array of chat messages [{role, content}]", "type": "array", "required": true },
+        { "name": "system", "description": "Optional system prompt", "type": "string", "required": false },
+        { "name": "temperature", "description": "Sampling temperature (0-2)", "type": "number", "required": false },
+        { "name": "maxTokens", "description": "Max output tokens", "type": "number", "required": false },
+        { "name": "baseURL", "description": "Optional custom base URL for the provider", "type": "string", "required": false }
+      ],
+      "returns": [
+        { "name": "text", "description": "Assistant message text", "type": "string" },
+        { "name": "model", "description": "Resolved model id", "type": "string" },
+        { "name": "finishReason", "description": "Why the generation stopped", "type": "string" },
+        { "name": "usage", "description": "Token usage details", "type": "object" }
+      ]
+    }
+  }
+}
