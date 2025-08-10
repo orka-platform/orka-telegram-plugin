@@ -1,0 +1,136 @@
+{
+  "name": "LLM Chat Completion",
+  "version": "v0.1.0",
+  "description": "Plugin for chat completion using various LLM providers via Vercel AI SDK",
+  "tags": [
+    "llm",
+    "ai",
+    "chat",
+    "completion",
+    "openai",
+    "anthropic"
+  ],
+  "methods": {
+    "ChatCompletion": {
+      "description": "Sends a chat completion request to the specified LLM provider",
+      "args": [
+        {
+          "name": "provider",
+          "description": "LLM provider (openai, anthropic)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "apiKey",
+          "description": "API key for the specified provider",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "messages",
+          "description": "Array of message objects with role and content",
+          "type": "array",
+          "required": true
+        },
+        {
+          "name": "model",
+          "description": "Model name to use (optional, will use defaults)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "temperature",
+          "description": "Sampling temperature (0.0 to 2.0, default: 0.7)",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "maxTokens",
+          "description": "Maximum tokens to generate (default: 1000)",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "returns": [
+        {
+          "name": "content",
+          "description": "The generated text content",
+          "type": "string"
+        },
+        {
+          "name": "model",
+          "description": "The model used for completion",
+          "type": "string"
+        },
+        {
+          "name": "usage",
+          "description": "Token usage information",
+          "type": "object"
+        },
+        {
+          "name": "finishReason",
+          "description": "Reason for completion finish",
+          "type": "string"
+        }
+      ]
+    },
+    "StreamChatCompletion": {
+      "description": "Sends a streaming chat completion request to the specified LLM provider",
+      "args": [
+        {
+          "name": "provider",
+          "description": "LLM provider (openai, anthropic)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "apiKey",
+          "description": "API key for the specified provider",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "messages",
+          "description": "Array of message objects with role and content",
+          "type": "array",
+          "required": true
+        },
+        {
+          "name": "model",
+          "description": "Model name to use (optional, will use defaults)",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "temperature",
+          "description": "Sampling temperature (0.0 to 2.0, default: 0.7)",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "maxTokens",
+          "description": "Maximum tokens to generate (default: 1000)",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "returns": [
+        {
+          "name": "content",
+          "description": "The complete generated text content",
+          "type": "string"
+        },
+        {
+          "name": "chunks",
+          "description": "Array of streaming chunks received",
+          "type": "array"
+        },
+        {
+          "name": "model",
+          "description": "The model used for completion",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "examples": {
+    "basic_openai": {
+      "description": "Basic OpenAI chat completion",
+      "method": "ChatCompletion",
+      "args": {
+        "provider": "openai",
+        "apiKey": "your-openai-api-key",
+        "messages": [
+          {
+            "role": "user",
+            "content": "What is the capital of France?"
+          }
+        ]
+      }
+    },
+    "anthropic_with_system": {
+      "description": "Anthropic chat completion with system message",
+      "method": "ChatCompletion",
+      "args": {
+        "provider": "anthropic",
+        "apiKey": "your-anthropic-api-key",
+        "model": "claude-3-sonnet-20240229",
+        "temperature": 0.5,
+        "maxTokens": 500,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a helpful assistant that gives concise answers."
+          },
+          {
+            "role": "user",
+            "content": "Explain what is machine learning in one sentence."
+          }
+        ]
+      }
+    },
+    "conversation_history": {
+      "description": "Chat completion with conversation history",
+      "method": "ChatCompletion",
+      "args": {
+        "provider": "openai",
+        "apiKey": "your-openai-api-key",
+        "model": "gpt-4",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a helpful coding assistant."
+          },
+          {
+            "role": "user",
+            "content": "How do I write a function in Go?"
+          },
+          {
+            "role": "assistant",
+            "content": "In Go, you can write a function using the 'func' keyword followed by the function name, parameters, and return type."
+          },
+          {
+            "role": "user",
+            "content": "Can you show me an example?"
+          }
+        ]
+      }
+    },
+    "streaming_completion": {
+      "description": "Streaming chat completion for real-time responses",
+      "method": "StreamChatCompletion",
+      "args": {
+        "provider": "openai",
+        "apiKey": "your-openai-api-key",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Write a haiku about programming."
+          }
+        ]
+      }
+    },
+    "creative_writing": {
+      "description": "Creative writing with high temperature",
+      "method": "ChatCompletion",
+      "args": {
+        "provider": "anthropic",
+        "apiKey": "your-anthropic-api-key",
+        "model": "claude-3-opus-20240229",
+        "temperature": 0.9,
+        "maxTokens": 1000,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a creative writing assistant. Be imaginative and poetic."
+          },
+          {
+            "role": "user",
+            "content": "Write a short story about a robot learning to paint."
+          }
+        ]
+      }
+    },
+    "code_generation": {
+      "description": "Code generation with specific requirements",
+      "method": "ChatCompletion",
+      "args": {
+        "provider": "openai",
+        "apiKey": "your-openai-api-key",
+        "model": "gpt-4",
+        "temperature": 0.2,
+        "maxTokens": 2000,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a programming expert. Write clean, well-documented code."
+          },
+          {
+            "role": "user",
+            "content": "Write a Go function that implements a binary search algorithm."
+          }
+        ]
+      }
+    }
+  },
+  "usage_notes": {
+    "api_keys": "Replace 'your-openai-api-key' and 'your-anthropic-api-key' with actual API keys",
+    "models": "Model names are provider-specific. Use appropriate models for your use case.",
+    "temperature": "Lower values (0.0-0.3) for factual responses, higher values (0.7-1.0) for creativity",
+    "max_tokens": "Set based on expected response length. Consider API costs and rate limits.",
+    "messages": "Always include at least one user message. System messages are optional but useful for context."
+  }
+}
