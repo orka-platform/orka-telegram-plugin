@@ -2,14 +2,9 @@ package main
 
 import (
 	"encoding/gob"
-	"flag"
 	"fmt"
-	"log"
-	"net"
 	"net/http"
-	"net/rpc"
 	"net/url"
-	"os"
 
 	sdk "github.com/orka-platform/orka-plugin-sdk"
 )
@@ -75,26 +70,9 @@ func sendTelegramMessage(token, chatID, text string) error {
 	return nil
 }
 
-func main() {
-	port := flag.Int("port", 0, "TCP port for RPC server (required)")
-	flag.Parse()
-
-	if *port == 0 {
-		fmt.Fprintln(os.Stderr, "Missing required --port argument")
-		os.Exit(1)
-	}
-
-	err := rpc.Register(&TelegramPlugin{})
-	if err != nil {
-		log.Fatalf("RPC register error: %v", err)
-	}
-
-	addr := fmt.Sprintf("127.0.0.1:%d", *port)
-	listener, err := net.Listen("tcp", addr)
-	if err != nil {
-		log.Fatalf("Failed to listen on %s: %v", addr, err)
-	}
-
-	fmt.Printf("Telegram plugin listening on %s\n", addr)
-	rpc.Accept(listener)
+// OrkaCall is the exported entrypoint symbol for in-process usage.
+// It wraps the existing rpc-style method for minimal change.
+func OrkaCall(req sdk.Request, res *sdk.Response) error {
+	var t TelegramPlugin
+	return t.CallMethod(req, res)
 }
